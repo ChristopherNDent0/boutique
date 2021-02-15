@@ -24,7 +24,7 @@ public class ProduitDaoImpl implements ProduitDao {
 	@Override
 	public List<Produit> getAllProduit() {
 		@SuppressWarnings("unchecked")
-		List<Produit> produit = sessionFactory.getCurrentSession().createCriteria(Produit.class).list();
+		List<Produit> produit = (List<Produit>) sessionFactory.getCurrentSession().createCriteria(Produit.class).list();
 		// or below query
 		/*
 		 * @SuppressWarnings("unchecked") List<Produit> produit =
@@ -38,11 +38,16 @@ public class ProduitDaoImpl implements ProduitDao {
 	@Transactional
 	public void ajouterProduit(Produit produit) {
 		
-//		Session session = sessionFactory.getCurrentSession();
-//		session.beginTransaction();
-//		session.save(produit);
-//		sessionFactory.getCurrentSession().getTransaction().commit();	
-//		session.close();
+//		sessionFactory.getCurrentSession().save(produit);
+//		sessionFactory.close();
+		System.out.println("yo1");
+		
+		Session session = sessionFactory.getCurrentSession();
+		session.beginTransaction();
+		session.save(produit);
+		sessionFactory.getCurrentSession().getTransaction().commit();	
+		session.close();
+		System.out.println("yo2");
 	}
 
 	public SessionFactory getSessionFactory() {
