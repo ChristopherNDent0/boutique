@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<title>Mon catalogue</title>
+</h:head>
+<h:body>
+	<h:form>
+		<br />
+		<h:outputLabel value="Tapez votre recherche" />
+		<br />
+		<h:inputText value="#{produitMBean.nomProduit}"></h:inputText>
+		<br />
+		<h:outputLabel value="Categorie" />
+		<br />
+		<h:selectOneMenu value="#{produitMBean.selectedCategorie}">
+			<f:selectItems value="#{categorieMBean.categorieList}" var="c"
+				itemLabel="#{c.libelle}" itemValue="#{c.idCategorie}" />
+		</h:selectOneMenu>
+		<br />
+		<h:outputLabel for="@next" value="Prix" />
+		<br />
+		<h:selectOneMenu value="#{produitMbean.prix}">
+			<f:selectItem itemLabel="50£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="100£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="150£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="250£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="300£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="350£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="400£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="450£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="500£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="600£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="700£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="800£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="900£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="1000£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="1500£" itemValue="#{produit.prixActuel}" />
+			<f:selectItem itemLabel="2000£" itemValue="#{produit.prixActuel}" />
+
+
+		</h:selectOneMenu>
+		<br />
+		<br />
+		<h:commandButton value="rechercher" action="#{produitMBean.recherche}">
+		</h:commandButton>
+
+
+		<p>
+			<h:dataTable value="#{produitMBean.produitList}" var="produit">
+				<h:column>
+					<f:facet name="header">
+                        NOM
+                    </f:facet>
+					<h:outputText value="#{produit.nom}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+                        DESCRIPTION
+                    </f:facet>
+					<h:outputText value="#{produit.description}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+                        IMAGE
+                    </f:facet>
+					<h:outputText value="#{produit.urlImage}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+                        Email
+                    </f:facet>
+					<h:outputText value="#{produit.prixActuel}" />
+				</h:column>
+			</h:dataTable>
+
+		</p>
+
+	</h:form>
+</h:body>
+</html>

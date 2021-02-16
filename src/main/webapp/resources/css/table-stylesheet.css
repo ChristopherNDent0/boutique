@@ -1,0 +1,33 @@
+
+th, td {
+    text-align: center;
+
+}
+
+h3 {
+    margin-top: 0;
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+}
+
+/*scale product images*/
+.scale-product-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
+/* emplacement du bouton*/
+.btn_valid {
+position:relative;
+left:50%;
+}
+.table-behavior {
+    /*todo: figure how to pass primefaces parameters with css*/
+    /*draggable*/
+}
