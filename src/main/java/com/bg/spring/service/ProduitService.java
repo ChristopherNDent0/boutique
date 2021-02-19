@@ -7,5 +7,7 @@ import com.bg.hibernate.model.Produit;
 public interface ProduitService {
 	public Produit getProduit(int id);
 	public List<Produit> getAllProduit();
-	boolean ajouterProduit(Produit produit);
+	void ajouterProduit(Produit produit);
+	List<Produit> getProduitsByCategorie(int idCat, String nomProduit, Double prix);
+	public void supprimerProduit(Produit produit);
 }

@@ -1,0 +1,33 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<script name="jquery/jquery.js" library="primefaces"></script>
+	<title>Register Employee</title>
+</h:head>
+<h:form>
+	<p:growl id="messages"></p:growl>
+	<h:panelGrid columns="2">
+		<p:outputLabel value="ID" />
+		<p:inputText value="#{Produit.idProduit}" />
+		<p:outputLabel value="Name" />
+		<p:inputText value="#{produitMBean.produit.nom}" />
+		<p:outputLabel value="Stock" />
+		<p:inputText value="#{produitMBean.produit.stock}" />
+		<p:outputLabel value="Description" />
+		<p:inputText value="#{produitMBean.produit.description}" />
+		<p:outputLabel value="URL Image" />
+		<p:inputText value="#{produitMBean.produit.urlImage}" />
+		<p:outputLabel value="idCategorie" />
+		<p:inputText value="#{produitMBean.produit.idCategorie}" />
+		<p:outputLabel value="prixActuel" />
+		<p:inputText value="#{produitMBean.produit.prixActuel}" />
+		<p:commandButton value="ajouter"
+			action="#{produitMBean.ajouterProduit}">
+		</p:commandButton>
+	</h:panelGrid>
+</h:form>
+</html>

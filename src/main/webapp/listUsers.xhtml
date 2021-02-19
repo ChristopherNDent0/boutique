@@ -4,55 +4,46 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-	<title>JSF 2, Spring 4, Hibernate 4 and Maven Integration</title>
+	<title>Mon catalogue</title>
 </h:head>
 <h:body>
-	<h2>List of Products</h2>
-	<p>
-		<h:dataTable value="#{produitMBean.produitList}" var="produit">
-			<h:column>
-				<f:facet name="header">
-                        ID
+	<h:form>
+
+		<p>
+			<h:dataTable value="#{produitMBean.produitList}" var="produit">
+				<h:column>
+					<f:facet name="header">
+                        NOM
                     </f:facet>
-				<h:outputText value="#{produit.idProduit}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-                        Name
+					<h:outputText value="#{produit.nom}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+                        DESCRIPTION
                     </f:facet>
-				<h:outputText value="#{produit.nom}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-                        Stock
+					<h:outputText value="#{produit.description}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+                        IMAGE
                     </f:facet>
-				<h:outputText value="#{produit.stock}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-                        Description
+					<h:outputText value="#{produit.urlImage}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+                        Email
                     </f:facet>
-				<h:outputText value="#{produit.description}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-                        URL Image
-                    </f:facet>
-				<h:outputText value="#{produit.urlImage}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-                        idCategorie
-                    </f:facet>
-				<h:outputText value="#{produit.idCategorie}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-                        prixActuel
-                    </f:facet>
-				<h:outputText value="#{produit.prixActuel}" />
-			</h:column>
-		</h:dataTable>
-	</p>
+					<h:outputText value="#{produit.prixActuel}" />
+				</h:column>
+				<h:column>
+					<h:commandButton value="supprimer"
+						action="#{produitMBean.supprimerProduit}">
+					</h:commandButton>
+				</h:column>
+			</h:dataTable>
+
+		</p>
+
+	</h:form>
 </h:body>
 </html>

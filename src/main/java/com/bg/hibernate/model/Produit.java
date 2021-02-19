@@ -1,16 +1,27 @@
 package com.bg.hibernate.model;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "produit")
-public class Produit {
+public class Produit implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id_produit")
@@ -24,7 +35,16 @@ public class Produit {
 	@Column(name = "url_image")
 	private String urlImage;
 	@Column(name = "id_categorie")
+//  @OneToMany(cascade = CascadeType.ALL)
+//	@JoinTable( name="Produit", joinColumns = { @JoinColumn(name="id_categorie")}, inverseJoinColumns = { @JoinColumn(name = "COURSE_ID")})
+//	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Categorie.class)
+//	@JoinColumn(name = "id_catgeorie")
 	private int idCategorie;
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 	@Column(name = "prix_actuel")
 	private Double prixActuel;
 
