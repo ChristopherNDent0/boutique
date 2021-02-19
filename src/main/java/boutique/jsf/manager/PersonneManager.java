@@ -3,6 +3,7 @@ package boutique.jsf.manager;
 import boutique.hibernate.model.Personne;
 import boutique.spring.service.PersonneService;
 
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
