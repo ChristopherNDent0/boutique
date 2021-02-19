@@ -8,6 +8,7 @@
 </h:head>
 <h:body>
 	<h:form>
+
 		<br />
 		<h:outputLabel value="Tapez votre recherche" />
 		<br />
@@ -20,34 +21,11 @@
 				itemLabel="#{c.libelle}" itemValue="#{c.idCategorie}" />
 		</h:selectOneMenu>
 		<br />
-		<h:outputLabel for="@next" value="Prix" />
-		<br />
-		<h:selectOneMenu value="#{produitMbean.prix}">
-			<f:selectItem itemLabel="50£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="100£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="150£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="250£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="300£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="350£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="400£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="450£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="500£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="600£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="700£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="800£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="900£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="1000£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="1500£" itemValue="#{produit.prixActuel}" />
-			<f:selectItem itemLabel="2000£" itemValue="#{produit.prixActuel}" />
-
-
-		</h:selectOneMenu>
 		<br />
 		<br />
 		<h:commandButton value="rechercher" action="#{produitMBean.recherche}">
 		</h:commandButton>
-
-
+		
 		<p>
 			<h:dataTable value="#{produitMBean.produitList}" var="produit">
 				<h:column>
@@ -77,7 +55,6 @@
 			</h:dataTable>
 
 		</p>
-
 	</h:form>
 </h:body>
 </html>

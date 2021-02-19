@@ -5,6 +5,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.faces.model.SelectItem;
+
 import com.bg.hibernate.model.Produit;
 import com.bg.spring.service.ProduitService;
 
@@ -19,7 +21,7 @@ public class ProduitMBean implements Serializable {
 	private List<Produit> produitList;
 	private String selectedCategorie;
 	private String nomProduit;
-	private Double prix;
+	private Double selectedPrix;
 
 	public Produit getProduit() {
 		return produit;
@@ -60,25 +62,31 @@ public class ProduitMBean implements Serializable {
 		this.produitService = produitService;
 	}
 
-
-	public Double getPrix() {
-		return prix;
+	public Double getSelectedPrix() {
+		//if (this.selected==null) return this.getMyUsers().get(0);
+		//if (this.selectedPrix == null) return this.getProduit();
+		return selectedPrix;
 	}
 
-	public void setPrix(Double prix) {
-		this.prix = prix;
+	public void setSelectedPrix(Double selectedPrix) {
+		this.selectedPrix = selectedPrix;
 	}
 
+	//@SuppressWarnings("static-access")
+//	public SelectItem[] getItemsAvailableSelectOne() {
+//		 
+//        List<Produit> liste = produitService.getAllProduit();
+//        SelectItem[] items = new SelectItem[liste.size()];
+//        for (int i=0;i<liste.size(); i++) {
+////            items[i] = new SelectItem(liste.get(i),liste.get(i).getPrixActuel().toString(selectedPrix));
+//        	 items[i] = new SelectItem(liste.get(i),liste.get(i).getPrixActuel().toString());
+//        }
+//        return items;
+//    }
 	public void recherche() {
-		int idCat = Integer.parseInt(selectedCategorie);
-		
-	
-		if (selectedCategorie == null && nomProduit == null && prix == null)
-			produitList = produitService.getAllProduit();
-		
-		else
-			//if (selectedCategorie == null || nomProduit == null || prix == null)
-				produitList = produitService.getProduitsByCategorie(idCat,nomProduit,prix);	
-		
-	}
+			
+			int idCat = Integer.parseInt(selectedCategorie);
+				produitList = produitService.filtrerProduits(idCat, nomProduit);
+	}		
 }
+

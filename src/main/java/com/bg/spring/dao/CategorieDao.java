@@ -7,5 +7,6 @@ import com.bg.hibernate.model.Categorie;
 
 public interface CategorieDao {
 	public List<Categorie> getAllCategorie();
+	public List<Categorie> getCategorie(int idCat);
 
 }

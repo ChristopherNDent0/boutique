@@ -30,12 +30,20 @@ public class ProduitServiceImpl implements ProduitService {
 			produitDao.ajouterProduit(produit);
 
 		}
-
+	}
+	
+	@Override
+	public List<Produit> filtrerProduits(int idCat, String nomProduit) {
+		return produitDao.filtrerProduits(idCat, nomProduit);
 	}
 
 	@Override
-	public List<Produit> getProduitsByCategorie(int idCat, String nomProduit, Double prix) {
-		return produitDao.getProduitsByCategorie(idCat, nomProduit,prix);
+	public List<Produit> getProduitByPrice(Double prix) {
+		return produitDao.getProduitByPrice(prix);
+	}
 
+	@Override
+	public List<Produit> getProduitsFilter(int idCat, String nomProduit, Double prix) {
+		return produitDao.filtrerProduits(idCat, nomProduit, prix);
 	}
 }

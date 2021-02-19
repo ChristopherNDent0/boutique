@@ -26,9 +26,8 @@ public class Categorie {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Categorie(int idCategorie, String libelle) {
+	public Categorie(String libelle) {
 		super();
-		this.idCategorie = idCategorie;
 		this.libelle = libelle;
 	}
 
