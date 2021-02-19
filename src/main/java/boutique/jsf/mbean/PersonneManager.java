@@ -1,8 +1,7 @@
-package boutique.jsf.manager;
+package boutique.jsf.mbean;
 
 import boutique.hibernate.model.Personne;
 import boutique.spring.service.PersonneService;
-
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -38,12 +37,12 @@ public class PersonneManager implements Serializable {
         return personneList;
     }
 
-    public void setPersonne(Personne personne) {
-        this.personne = personne;
-    }
-
     public void setPersonneList(List<Personne> personneList) {
         this.personneList = personneList;
+    }
+
+    public void setPersonne(Personne personne) {
+        this.personne = personne;
     }
 
     public void setPersonneService(PersonneService personneService) {

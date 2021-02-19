@@ -35,4 +35,10 @@
     <bean id="personneService" class="boutique.spring.service.impl.PersonneServiceImpl" />
     <!-- dao -->
     <bean id="personneDao" class="boutique.spring.dao.impl.PersonneDaoImpl" />
+
+    <bean id="produitService" class="boutique.spring.service.impl.ProduitServiceImpl" />
+    <bean id="categorieService" class="boutique.spring.service.impl.CategorieServiceImpl" />
+    <!-- dao -->
+    <bean id="produitDao" class="boutique.spring.dao.impl.ProduitDaoImpl" />
+    <bean id="categorieDao" class="boutique.spring.dao.impl.CategorieDaoImpl" />
 </beans>

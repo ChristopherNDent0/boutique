@@ -8,5 +8,4 @@ public interface PersonneDao {
     Personne personneInfo(int idPersonne);
 
     List<Personne> personneInfoList();
-
 }

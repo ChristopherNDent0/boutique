@@ -1,11 +1,6 @@
 package boutique.hibernate.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "produit")
@@ -15,11 +10,11 @@ public class Produit {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_produit")
     private int idProduit;
-    @Column
+    @Column(name = "nom")
     private String nom;
-    @Column
+    @Column(name = "quantite")
     private int stock;
-    @Column
+    @Column(name = "description")
     private String description;
     @Column(name = "url_image")
     private String urlImage;
