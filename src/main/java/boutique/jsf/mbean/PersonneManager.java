@@ -19,9 +19,6 @@ public class PersonneManager implements Serializable {
     private Personne personne;
     private List<Personne> personneList;
 
-    /**
-     * @return
-     */
     public Personne personne() {
         if (personne == null) {
             int idPersonne = 1; //todo: replace with proper check

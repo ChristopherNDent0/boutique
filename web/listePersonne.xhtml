@@ -14,45 +14,41 @@
             <h:form>
                 <p:growl id="messages"/>
                 <p:panel>
-                    <p:panelGrid columns="2" id="newArticlePanel">
+                    <p:growl life="1000" id="growl" sticky="true"/>
+                    <p:dataTable var="infoPersonne" value="#{personneManager.personneList}">
 
-                        <p:growl life="1000" id="growl" sticky="true"/>
-                        <p:dataTable var="infoPersonne" value="#{personneManager.personneList}">
+                        <p:column headerText="ID">
+                            <h:outputText value="#{infoPersonne.idPersonne}"/>
+                        </p:column>
 
-                            <p:column headerText="ID">
-                                <h:outputText value="#{infoPersonne.idPersonne}"/>
-                            </p:column>
+                        <p:column headerText="E-mail">
+                            <h:outputText value="#{infoPersonne.email}"/>
+                        </p:column>
 
-                            <p:column headerText="E-mail">
-                                <h:outputText value="#{infoPersonne.email}"/>
-                            </p:column>
+                        <p:column headerText="Prenom">
+                            <h:outputText value="#{infoPersonne.prenomPersonne}"/>
+                        </p:column>
 
-                            <p:column headerText="Prenom">
-                                <h:outputText value="#{infoPersonne.prenomPersonne}"/>
-                            </p:column>
+                        <p:column headerText="Nom">
+                            <h:outputText value="#{infoPersonne.nomPersonne}"/>
+                        </p:column>
 
-                            <p:column headerText="Nom">
-                                <h:outputText value="#{infoPersonne.nomPersonne}"/>
-                            </p:column>
+                        <p:column headerText="Date de Naissance">
+                            <h:outputText value="#{infoPersonne.dateNaissance}"/>
+                        </p:column>
 
-                            <p:column headerText="Date de Naissance">
-                                <h:outputText value="#{infoPersonne.dateNaissance}"/>
-                            </p:column>
+                        <p:column headerText="Date d'Inscription">
+                            <h:outputText value="#{infoPersonne.dateInscription}"/>
+                        </p:column>
 
-                            <p:column headerText="Date d'Inscription">
-                                <h:outputText value="#{infoPersonne.dateInscription}"/>
-                            </p:column>
+                        <p:column headerText="Status Client">
+                            <h:outputText value="#{infoPersonne.estClient}"/>
+                        </p:column>
 
-                            <p:column headerText="Status Client">
-                                <h:outputText value="#{infoPersonne.estClient}"/>
-                            </p:column>
-
-                            <p:column headerText="Status Admin">
-                                <h:outputText value="#{infoPersonne.estAdmin}"/>
-                            </p:column>
-                        </p:dataTable>
-
-                    </p:panelGrid>
+                        <p:column headerText="Status Admin">
+                            <h:outputText value="#{infoPersonne.estAdmin}"/>
+                        </p:column>
+                    </p:dataTable>
                 </p:panel>
             </h:form>
         </ui:define>

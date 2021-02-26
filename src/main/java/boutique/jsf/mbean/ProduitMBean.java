@@ -14,10 +14,10 @@ import java.util.List;
 @ViewScoped
 public class ProduitMBean implements Serializable {
     private static final long serialVersionUID = 1L;
-    // inject spring bean via DI
+
     @ManagedProperty("#{produitService}")
     private ProduitService produitService;
-    private Produit produit;
+    private Produit produit = new Produit();
     private List<Produit> produitList;
     private String selectedCategorie;
     private String nomProduit;
@@ -42,6 +42,10 @@ public class ProduitMBean implements Serializable {
         this.produitList = produitList;
     }
 
+    public void ajouterProduit() {
+        produitService.ajouterProduit(produit);
+    }
+
     public String getSelectedCategorie() {
         return selectedCategorie;
     }
@@ -62,7 +66,6 @@ public class ProduitMBean implements Serializable {
         this.produitService = produitService;
     }
 
-
     public Double getPrix() {
         return prix;
     }
@@ -74,13 +77,11 @@ public class ProduitMBean implements Serializable {
     public void recherche() {
         int idCat = Integer.parseInt(selectedCategorie);
 
-
         if (selectedCategorie == null && nomProduit == null)
             produitList = produitService.getAllProduit();
 
         else
             //if (selectedCategorie == null || nomProduit == null || prix == null)
             produitList = produitService.getProduitsByCategorie(idCat, nomProduit);
-
     }
 }

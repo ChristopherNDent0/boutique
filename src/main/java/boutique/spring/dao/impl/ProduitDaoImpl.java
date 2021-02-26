@@ -4,6 +4,7 @@ import boutique.hibernate.model.Produit;
 import boutique.spring.dao.ProduitDao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,15 +42,21 @@ public class ProduitDaoImpl implements ProduitDao {
     @Override
     @Transactional
     public void ajouterProduit(Produit produit) {
-        Session session = sessionFactory.getCurrentSession();
-        session.beginTransaction();
-        session.save(produit);
-        sessionFactory.getCurrentSession().getTransaction().commit();
-        session.close();
-    }
+        Session session = sessionFactory.openSession();
+        try {
+            final Transaction transaction = session.beginTransaction();
+            try {
+                session.save(produit);
+                transaction.commit();
 
-    public SessionFactory getSessionFactory() {
-        return sessionFactory;
+            } catch (Exception ex) {
+                // Log the exception here
+                transaction.rollback();
+                throw ex;
+            }
+        } finally {
+            session.close();
+        }
     }
 
     @Transactional

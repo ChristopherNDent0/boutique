@@ -13,7 +13,6 @@ import java.util.List;
 @ManagedBean
 @ViewScoped
 public class CategorieMBean implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
     @ManagedProperty("#{categorieService}")
